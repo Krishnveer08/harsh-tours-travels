@@ -1,65 +1,47 @@
-import Image from "next/image";
-
-const vehicles = [
-  {
-    name: "Sedan",
-    seats: "4 Seater",
-    image: "/images/fleet/sedan.jpg",
-  },
-  {
-    name: "Toyota Crysta",
-    seats: "7 Seater",
-    image: "/images/fleet/crysta.jpg",
-  },
-  {
-    name: "Tempo Traveller",
-    seats: "12 Seater",
-    image: "/images/fleet/tempo-traveller.jpg",
-  },
-];
+import Link from "next/link";
+import FleetCard from "@/components/fleet/FleetCard";
+import { fleet } from "@/data/fleet";
 
 export default function FleetPreview() {
   return (
     <section className="bg-slate-900 py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-center text-4xl font-bold text-white">
-          Our Premium Fleet
-        </h2>
+        <div className="text-center">
+          <p className="text-blue-400 uppercase tracking-[0.3em]">
+            Our Vehicles
+          </p>
 
-        <p className="mt-4 text-center text-gray-400">
-          Choose the perfect vehicle for your journey.
-        </p>
+          <h2 className="mt-3 text-4xl font-bold text-white">
+            Our Premium Fleet
+          </h2>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {vehicles.map((vehicle) => (
-            <div
-              key={vehicle.name}
-              className="overflow-hidden rounded-2xl bg-slate-800 shadow-lg transition hover:-translate-y-2"
-            >
-              <div className="relative h-60">
-                <Image
-                  src={vehicle.image}
-                  alt={vehicle.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+          <p className="mt-4 text-gray-400">
+            Choose the perfect vehicle for your journey.
+          </p>
+        </div>
 
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-white">
-                  {vehicle.name}
-                </h3>
-
-                <p className="mt-2 text-gray-400">
-                  {vehicle.seats}
-                </p>
-
-                <button className="mt-6 w-full rounded-xl bg-blue-600 py-3 font-semibold text-white hover:bg-blue-700">
-                  Book Now
-                </button>
-              </div>
-            </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          {fleet.map((vehicle) => (
+            <FleetCard
+              key={vehicle.id}
+              slug={vehicle.slug}
+              name={vehicle.name}
+              seats={vehicle.seats}
+              image={vehicle.image}
+              examples={vehicle.examples}
+              price={vehicle.price}
+              features={vehicle.features}
+            />
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/fleet"
+            className="rounded-xl border border-blue-500 px-8 py-4 font-semibold text-blue-400 transition hover:bg-blue-600 hover:text-white"
+          >
+            View Complete Fleet →
+          </Link>
         </div>
       </div>
     </section>
