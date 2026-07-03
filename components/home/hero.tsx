@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -29,19 +30,25 @@ export default function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
-            Luxury Tempo Traveller, Toyota Crysta and Sedan services for
-            family trips, corporate travel, weddings and customised tours
+            Luxury Tempo Traveller, Toyota Crysta, SUV/MUV and Sedan services
+            for family trips, corporate travel, weddings and customised tours
             across India.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="rounded-xl bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700">
+            <Link
+              href="/get-quote"
+              className="rounded-xl bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700"
+            >
               Book Your Trip
-            </button>
+            </Link>
 
-            <button className="rounded-xl border border-white px-8 py-4 font-semibold transition hover:bg-white hover:text-black">
+            <Link
+              href="/fleet"
+              className="rounded-xl border border-white px-8 py-4 font-semibold transition hover:bg-white hover:text-black"
+            >
               View Fleet
-            </button>
+            </Link>
           </div>
         </div>
       </div>
