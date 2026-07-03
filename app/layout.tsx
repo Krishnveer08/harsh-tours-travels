@@ -1,6 +1,8 @@
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import FloatingWhatsapp from "@/components/ui/FloatingWhatsapp";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export default function RootLayout({
   children,
@@ -9,13 +11,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
+      <body className="bg-slate-950 text-white">
+  <Navbar />
 
-        {children}
+  <main>{children}</main>
 
-        <Footer />
-      </body>
+  <Footer />
+
+  <ScrollToTop />
+
+  <FloatingWhatsapp />
+</body>
     </html>
   );
 }
