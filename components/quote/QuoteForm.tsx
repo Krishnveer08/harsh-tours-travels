@@ -7,6 +7,14 @@ export default function QuoteForm() {
 
   const [loading, setLoading] = useState(false);
 
+  const [status, setStatus] = useState<{
+  type: "success" | "error" | "";
+  message: string;
+}>({
+  type: "",
+  message: "",
+});
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -91,50 +99,103 @@ export default function QuoteForm() {
     return valid;
   };
 
-  const sendToWhatsapp = () => {
-    if (!validate()) return;
+ const sendToWhatsapp = async () => {
+  if (!validate()) return;
 
-    setLoading(true);
+  setStatus({
+  type: "",
+  message: "",
+});
 
-    const message = `🚖 *New Booking Enquiry*
+  setLoading(true);
 
-👤 *Name:* ${form.name}
+  try {
+  const response = await fetch("/api/quote", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: form.name,
+    phone: form.phone,
+    email: form.email,
+    pickup: form.pickup,
+    destination: form.destination,
+    date: form.journeyDate,
+    vehicle: form.vehicle,
+    message: `
+Trip Type: ${form.tripType}
+Return Date: ${form.returnDate || "-"}
+Passengers: ${form.passengers}
 
-📱 *Phone:* ${form.phone}
+${form.message}
+    `,
+  }),
+});
 
-📧 *Email:* ${form.email || "-"}
+const result = await response.json();
 
-📍 *Pickup:* ${form.pickup}
+if (!response.ok || !result.success) {
+  throw new Error(result.message || "Failed");
+}
 
-🏁 *Destination:* ${form.destination}
+setStatus({
+  type: "success",
+  message: "Your enquiry has been sent successfully!",
+});
 
-📅 *Journey Date:* ${form.journeyDate}
+const message = `🚖 *New Booking Enquiry*
 
-🔁 *Trip Type:* ${form.tripType}
+👤 Name: ${form.name}
 
-${form.tripType === "Round Trip"
-        ? `📅 *Return Date:* ${form.returnDate}\n`
-        : ""
-      }
+📱 Phone: ${form.phone}
 
-🚘 *Vehicle:* ${form.vehicle}
+📧 Email: ${form.email || "-"}
 
-👥 *Passengers:* ${form.passengers}
+📍 Pickup: ${form.pickup}
 
-📝 *Message:*
-${form.message || "-"}
+🏁 Destination: ${form.destination}
 
-Thank you.`;
+📅 Journey Date: ${form.journeyDate}
 
-    const url = `https://wa.me/918306110348?text=${encodeURIComponent(
-      message
-    )}`;
+🚘 Vehicle: ${form.vehicle}
 
-    setTimeout(() => {
-      window.open(url, "_blank");
-      setLoading(false);
-    }, 800);
-  };
+👥 Passengers: ${form.passengers}
+
+📝 Message:
+${form.message || "-"}`;
+
+setForm({
+  name: "",
+  phone: "",
+  email: "",
+  pickup: "",
+  destination: "",
+  journeyDate: "",
+  returnDate: "",
+  vehicle: "Sedan",
+  passengers: "",
+  tripType: "One Way",
+  message: "",
+});
+
+setLoading(false);
+
+window.location.href = `https://wa.me/918306110348?text=${encodeURIComponent(message)}`;
+
+} catch (error) {
+  console.error(error);
+
+  setLoading(false);
+
+  setStatus({
+    type: "error",
+    message: "Failed to send enquiry.",
+  });
+
+  return;
+}
+};
 
   return (
     <div className="rounded-2xl bg-slate-900 p-8 shadow-xl">
@@ -269,15 +330,25 @@ Thank you.`;
         onChange={handleChange}
         className="mt-6 w-full rounded-xl bg-slate-800 p-4 outline-none focus:ring-2 focus:ring-blue-500"
       />
-
+      {status.message && (
+  <div
+    className={`mt-6 rounded-xl border p-4 text-center font-semibold ${
+      status.type === "success"
+        ? "border-green-500 bg-green-500/10 text-green-400"
+        : "border-red-500 bg-red-500/10 text-red-400"
+    }`}
+  >
+    {status.message}
+  </div>
+)}
       <button
         onClick={sendToWhatsapp}
         disabled={loading}
         className="mt-8 w-full rounded-xl bg-green-600 py-4 text-lg font-bold transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-green-500"
       >
         {loading
-          ? "Opening WhatsApp..."
-          : "🟢 Get Instant Quote on WhatsApp"}
+  ? "Sending..."
+  : "🟢 Send Enquiry & Open WhatsApp"}
       </button>
     </div>
   );
