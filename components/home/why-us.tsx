@@ -42,7 +42,10 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section className="bg-slate-950 py-24">
+    <section
+  data-aos="fade-up"
+  className="bg-slate-950 py-24"
+>
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-center text-5xl font-bold text-white">
           Why Choose Us

@@ -128,3 +128,16 @@
     @apply font-sans;
   }
 }
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.animate-heroZoom {
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}

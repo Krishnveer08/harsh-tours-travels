@@ -33,7 +33,7 @@ console.log(fleet.map((v) => v.name));
       </section>
 
       {/* Fleet Cards */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {fleet.map((vehicle) => (

@@ -25,7 +25,9 @@ const stats = [
 
 export default function TrustSection() {
   return (
-    <section className="bg-slate-950 py-16">
+    <section 
+    data-aos="fade-up"
+    className="bg-slate-950 py-16">
       <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-4">
         {stats.map((item) => {
           const Icon = item.icon;

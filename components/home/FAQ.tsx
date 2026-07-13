@@ -8,7 +8,9 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-slate-950 py-20">
+    <section 
+    data-aos="fade-up"
+    className="bg-slate-950 py-20">
       <div className="mx-auto max-w-5xl px-6">
 
         <div className="text-center">

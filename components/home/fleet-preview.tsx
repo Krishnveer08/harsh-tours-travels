@@ -4,23 +4,30 @@ import { fleet } from "@/data/fleet";
 
 export default function FleetPreview() {
   return (
-    <section className="bg-slate-900 py-20">
+    <section
+      data-aos="fade-up"
+      className="bg-slate-900 py-24"
+    >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center">
-          <p className="text-blue-400 uppercase tracking-[0.3em]">
-            Our Vehicles
+        {/* Section Heading */}
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-400">
+            Our Fleet
           </p>
 
-          <h2 className="mt-3 text-4xl font-bold text-white">
-            Our Premium Fleet
+          <h2 className="mt-4 text-5xl font-bold text-white">
+            Travel With Comfort
           </h2>
 
-          <p className="mt-4 text-gray-400">
-            Choose the perfect vehicle for your journey.
+          <p className="mt-6 text-lg leading-8 text-gray-400">
+            Choose from our premium collection of Sedans, SUVs, Urbania and
+            Tempo Travellers. Every vehicle is professionally maintained to
+            provide a safe, comfortable and memorable travel experience.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        {/* Fleet Cards */}
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
           {fleet.map((vehicle) => (
             <FleetCard
               key={vehicle.id}
@@ -35,12 +42,13 @@ export default function FleetPreview() {
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
+        {/* CTA */}
+        <div className="mt-16 flex justify-center">
           <Link
             href="/fleet"
-            className="rounded-xl border border-blue-500 px-8 py-4 font-semibold text-blue-400 transition hover:bg-blue-600 hover:text-white"
+            className="rounded-xl border border-blue-500 px-8 py-4 font-semibold text-blue-400 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-500/20"
           >
-            View Complete Fleet →
+            Explore Complete Fleet →
           </Link>
         </div>
       </div>

@@ -3,7 +3,10 @@ import { testimonials } from "@/data/testimonials";
 
 export default function Testimonials() {
   return (
-    <section className="bg-slate-900 py-20">
+    <section
+  data-aos="zoom-in"
+  className="bg-slate-900 py-20"
+>
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
           <p className="uppercase tracking-[0.3em] text-blue-400">
