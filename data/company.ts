@@ -11,7 +11,7 @@ export const company = {
 
   whatsapp: "918306110348",
 
-  email: "harshtourstravelsjaipur@gmail.com",
+  email: "harshtravelsjaipur@gmail.com",
 
   address: "Jaipur, Rajasthan",
 
