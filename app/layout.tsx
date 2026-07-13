@@ -36,30 +36,30 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://harsh-tours-travels.vercel.app"),
 
   openGraph: {
-    title: "Harsh Tours & Travels",
-    description:
-      "Premium Tempo Traveller, Urbania, SUV & Sedan rental services across India.",
-    url: "https://harsh-tours-travels.vercel.app",
-    siteName: "Harsh Tours & Travels",
-    images: [
-      {
-        url: "/images/hero/hero-4.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Harsh Tours & Travels",
-      },
-    ],
-    locale: "en_IN",
-    type: "website",
-  },
+  title: "Harsh Tours & Travels",
+  description:
+    "Premium Tempo Traveller, Urbania, SUV, Sedan & Toyota Crysta rental services across Rajasthan and India.",
+  url: "https://harsh-tours-travels.vercel.app",
+  siteName: "Harsh Tours & Travels",
+  images: [
+    {
+      url: "/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Harsh Tours & Travels",
+    },
+  ],
+  locale: "en_IN",
+  type: "website",
+},
 
   twitter: {
-    card: "summary_large_image",
-    title: "Harsh Tours & Travels",
-    description:
-      "Luxury Tempo Traveller, Urbania & Cab Rental Services.",
-    images: ["/images/hero/hero-4.jpg"],
-  },
+  card: "summary_large_image",
+  title: "Harsh Tours & Travels",
+  description:
+    "Premium Tempo Traveller, Urbania, SUV & Sedan rental services across India.",
+  images: ["/og-image.jpg"],
+},
 
   icons: {
     icon: "/favicon.ico",
