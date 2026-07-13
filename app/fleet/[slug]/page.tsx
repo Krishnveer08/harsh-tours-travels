@@ -1,6 +1,7 @@
 import { fleet } from "@/data/fleet";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{
@@ -57,9 +58,12 @@ export default async function FleetDetailPage({ params }: Props) {
               </ul>
             </div>
 
-            <button className="mt-10 rounded-xl bg-blue-600 px-8 py-4 font-semibold hover:bg-blue-700 transition">
-              Get Free Quote
-            </button>
+           <Link
+  href="/get-quote"
+  className="mt-10 inline-block rounded-xl bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700"
+>
+  Get Free Quote
+</Link>
 
           </div>
         </div>
