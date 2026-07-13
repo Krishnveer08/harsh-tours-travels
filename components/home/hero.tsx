@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative h-[90vh] w-full overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/images/hero/hero-1.jpg"
+        src="/images/hero/hero-4.jpg"
         alt="Harsh Tours & Travels"
         fill
         priority

@@ -39,12 +39,12 @@ export const gallery = [
     id: 7,
     category: "Tempo Traveller",
     title: "Tempo Traveller",
-    image: "/images/gallery/traveller/traveller-2.jpg",
+    image: "/images/gallery/traveller/traveller-1.jpg",
   },
   {
     id: 8,
     category: "Tempo Traveller",
     title: "Traveller Interior",
-    image: "/images/gallery/traveller/traveller-1.jpg",
+    image: "/images/gallery/traveller/traveller-2.jpg",
   },
 ];

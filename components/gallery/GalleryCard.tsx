@@ -18,12 +18,12 @@ export default function GalleryCard({
     >
       <div className="relative h-72 overflow-hidden">
         <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width:768px)100vw,(max-width:1200px)50vw,25vw"
-          className="object-cover transition duration-500 group-hover:scale-110"
-        />
+  src={image}
+  alt={title}
+  fill
+  sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+  className="object-cover"
+/>
 
         <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition duration-300 group-hover:bg-black/50">
           <span className="rounded-lg border border-white px-5 py-2 text-white opacity-0 transition group-hover:opacity-100">

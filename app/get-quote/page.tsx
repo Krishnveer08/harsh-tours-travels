@@ -46,7 +46,7 @@ export default function GetQuotePage() {
                 </p>
 
                 <p className="text-gray-300">
-                  +91 XXXXX XXXXX
+                  +91 9829630537
                 </p>
               </div>
 
