@@ -5,13 +5,13 @@ export const company = {
 
   founded: "2005",
 
-  owner: "Harsh",
+  owner: "Shivraj Singh",
 
   phone: "+919829630537",
 
   whatsapp: "918306110348",
 
-  email: "info@harshtours.com",
+  email: "harshtourstravelsjaipur@gmail.com",
 
   address: "Jaipur, Rajasthan",
 
