@@ -24,11 +24,11 @@ export const gallery = [
     image: "/images/gallery/suv/suv-2.jpg",
   },
   {
-    id: 5,
-    category: "Urbania",
-    title: "Force Urbania",
-    image: "/images/gallery/urbania/urbania-1.jpg",
-  },
+  id: 5,
+  category: "Urbania",
+  title: "Force Urbania",
+  image: "/images/gallery/urbania/Urbania-1.jpg",
+},
   {
     id: 6,
     category: "Urbania",
