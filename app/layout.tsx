@@ -33,13 +33,13 @@ export const metadata: Metadata = {
 
   creator: "Harsh Tours & Travels",
 
-  metadataBase: new URL("metadataBase: new URL("https://harsh-tours-travels.vercel.app"),"),
+  metadataBase: new URL("https://harsh-tours-travels.vercel.app"),
 
   openGraph: {
     title: "Harsh Tours & Travels",
     description:
       "Premium Tempo Traveller, Urbania, SUV & Sedan rental services across India.",
-    url: "https://your-vercel-url.vercel.app",
+    url: "https://harsh-tours-travels.vercel.app",
     siteName: "Harsh Tours & Travels",
     images: [
       {
