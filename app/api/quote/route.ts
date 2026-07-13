@@ -37,20 +37,30 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      return NextResponse.json(error, { status: 500 });
-    }
+  console.error("Resend Error:", error);
+
+  return NextResponse.json(
+    {
+      success: false,
+      error,
+    },
+    { status: 500 }
+  );
+}
 
     return NextResponse.json({
       success: true,
       message: "Quote request sent successfully.",
     });
   } catch (err) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Something went wrong.",
-      },
-      { status: 500 }
-    );
-  }
+  console.error("Catch Error:", err);
+
+  return NextResponse.json(
+    {
+      success: false,
+      error: String(err),
+    },
+    { status: 500 }
+  );
+}
 }
